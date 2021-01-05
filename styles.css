@@ -1,7 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
 
+
+/* **LAYOUT STYLES */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.heading {
+  background-color: #46424D;
+  text-align: center;
+}
+
 main {
   background-color: #2B2733;
+  display: flex;
+}
+
+.new-activity {
+  height: 100%;
+  width: 66%;
+}
+
+.past-activities {
+  border-left: solid #46424D;
+  height: 100%;
+  width: 66%;
+
+}
+
+.user-input {
+  background-color: #46424D;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 10px 10px #26222D;
+}
+
+.activity {
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  display:flex;
+}
+
+.goals {
+
+}
+
+.minutes {
+
+}
+
+.seconds {
+
+}
+
+.user-input {
+
 }
 
 /* **BUTTONS** */
@@ -17,26 +73,26 @@ main {
 
 /* main title */
 h1 {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+  color: #FFF;
 }
 
 /* section title */
 h2 {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+  color: #CBC9CF;
 }
 
 /* select a category */
 h3 {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  color: #FFF;
 }
 
 /* you haven't logged any activities.... */
 h4 {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  color: #FFF;
 }
 
 /* **HIDDEN** */
