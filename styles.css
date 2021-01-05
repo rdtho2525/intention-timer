@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+main {
+  background-color: #2B2733;
+}
+
+/* **BUTTONS** */
+.start-activity {
+  background-color: #FFF;
+}
+
+.category-button {
+
+}
+
+/* **TEXT STYLES** */
+
+/* main title */
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+/* section title */
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+/* select a category */
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+/* you haven't logged any activities.... */
+h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+/* **HIDDEN** */
+.hidden {
+  display: none;
+}
+
+/* **FONTS** */
+/* font-family: 'Montserrat', sans-serif; */
+/* 300 weight and 400 weight */
+
+/* **COLORS** */
+/*
+Main background: #2B2733
+Text on main background: #CBC9CF
+Header, cards: #46424D
+Card shadow: #26222D
+Text on header and cards: #FFF
+Study: #B3FD78
+Meditate: #C278FD
+Exercise: #FD8078
+Error: #EFB7EC
+ */
