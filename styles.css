@@ -36,12 +36,16 @@ main {
   width: 33%;
 }
 
-.past-activities > p {
+.past-activities > aside {
   font-weight: 400;
   font-size: 14px;
   color: #CBC9CF;
   text-align: center;
-  margin: 10px 0;
+  margin: 40px 0;
+}
+
+.past-activities > aside > p {
+  margin-bottom: 12px;
 }
 
 .user-input {
@@ -54,8 +58,6 @@ main {
   width: 80%;
   box-shadow: 10px 10px 10px #26222D;
 }
-
-
 
 .activity {
   display: flex;
@@ -88,6 +90,7 @@ img {
 form {
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
   height: 25em;
 }
 
@@ -97,19 +100,32 @@ input {
   font-weight: 300;
   border: none;
   border-bottom: .1em solid #CBC9CF;
+  /* align-self: flex-end; */
 }
 
-.goals {
-
+.time-boxes {
+  display: flex;
+  flex-direction: row;
+  border: .5px solid red;
+  /* flex-basis: fit-content; */
+  max-width: 100%;
+  /* width: 20%; */
+  justify-content: space-between;
 }
+
 
 .minutes,
 .seconds {
-  display: inline;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 20%;
 }
 
+/* .seconds > input{
+  align-self: end;
+  margin-right: 58px;
+  grid-row-end: auto;
+  justify-content: flex-end;
+} */
 
 /* **BUTTONS** */
 .start-activity {
@@ -123,15 +139,12 @@ input {
 }
 
 /* **TEXT STYLES** */
-
 label {
   font-weight: 400;
   font-size: 15px;
   color: #FFF;
   margin: 18px 0;
 }
-
-
 
 /* section title */
 h2 {
