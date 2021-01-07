@@ -1,4 +1,4 @@
-/* **LAYOUT STYLES */
+/* **GENERAL & HEADING STYLES** */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,135 +12,69 @@ body {
 
 .heading {
   background-color: #46424D;
-  text-align: center;
-  font-weight: 400;
   color: #FFF;
+  font-weight: 400;
   font-size: 15px;
+  text-align: center;
   padding: 1em;
 }
 
+/* **PAGE LAYOUT** */
 main {
   display: flex;
 }
 
 .new-activity {
-  display: flex;
-  flex-direction: column;
   height: 100%;
   width: 66%;
-}
-
-.past-activities {
-  border-left: solid #46424D;
-  height: 677px;
-  width: 33%;
-}
-
-.past-activities > aside {
-  font-weight: 400;
-  font-size: 14px;
-  color: #CBC9CF;
-  text-align: center;
-  margin: 40px 0;
-}
-
-.past-activities > aside > p {
-  margin-bottom: 12px;
-}
-
-.activity-title {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: left;
-  font-weight: 300;
-  color: #CBC9CF;
-  font-size: 18px;
-  padding-top: 1.75em;
-  padding-bottom: 1em;
-}
-
-.user-input {
-  background-color: #46424D;
-  border-radius: 3px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  flex-basis: auto;
-  align-self: start;
-  padding: 2em 6em;
-  margin-left: 2em;
-  margin: 0 auto;
+}
+
+.user-input-card {
   height: 100%;
   width: 90%;
   max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  background-color: #46424D;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 2em 6em;
   box-shadow: 10px 10px 10px #26222D;
 }
 
-.activity {
+.activity-selection {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
-  /* max-width: 600px; */
-}
-
-.activity > li > button {
-  border: 2px solid #CBC9CF;
-  border-radius: 4px;
-  background-color: #46424D;
-  color: white;
-  height: 4.5em;
-  width: 10vw;
-  flex-grow: 2;
-  margin-top: -2em;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-img {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  transform: scale(.75);
-  height: 2em;
-  width: 2em;
 }
 
 form {
+  height: 20em;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  height: 20em;
 }
 
 input {
   background-color: #46424D;
   color: #CBC9CF;
   font-weight: 300;
+  margin-bottom: 0px;
   border: none;
   border-bottom: .1em solid #CBC9CF;
-  margin-bottom: 0px;
-  /* align-self: flex-end; */
 }
-
 
 .time-boxes {
   display: flex;
   flex-direction: row;
-  /* border: .5px solid red; */
-  /* flex-basis: fit-content; */
-  /* max-width: 100%; */
-  /* width: 20%; */
-  /* justify-content: space-between; */
 }
 
 .minutes,
 .seconds {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 .minutes {
@@ -150,42 +84,87 @@ input {
   margin-left: 35px;
 }
 
-/* .seconds > input{
-  align-self: end;
-  margin-right: 58px;
-  grid-row-end: auto;
-  justify-content: flex-end;
-} */
+.past-activities {
+  height: 677px;
+  width: 33%;
+  border-left: solid #46424D;
+}
 
-/* **BUTTONS** */
-.start-activity {
-  background-color: #FFF;
-  border: none;
-  border-radius: 2px;
+/* **BUTTON STYLES** */
+button:hover {
+  cursor: pointer;
+}
+
+.activity-selection > li > button {
+  height: 4.5em;
+  width: 10vw;
+  flex-grow: 2;
+  background-color: #46424D;
+  color: white;
+  margin-top: -2em;
+  border: 2px solid #CBC9CF;
+  border-radius: 4px;
+}
+
+img {
+  height: 2em;
+  width: 2em;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  transform: scale(.75);
+}
+
+.start-activity-button {
   align-self: flex-end;
+  background-color: #FFF;
   color: #2B2733;
   font-size: 16px;
+  border: none;
+  border-radius: 2px;
   padding: 7px 22px;
 }
 
 /* **TEXT STYLES** */
+.section-title {
+  width: 90%;
+  max-width: 1000px;
+  color: #CBC9CF;
+  text-align: left;
+  font-weight: 300;
+  font-size: 18px;
+  margin: 0 auto;
+  padding-top: 1.75em;
+  padding-bottom: 1em;
+}
+
 label {
+  color: #FFF;
   font-weight: 400;
   font-size: 16px;
-  color: #FFF;
   margin: 3em 0;
 }
 
-/* section title */
-
-h4 {
-
+.past-activities > aside {
+  color: #CBC9CF;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  margin: 40px 0;
 }
 
-/* **HIDDEN** */
+.past-activities > aside > p {
+  margin-bottom: 12px;
+}
+
+/* **UTILITY CLASSES** */
 .hidden {
   display: none;
 }
+
+
+/* **PAGE SPECS** */
+
 
 /* **FONTS** */
 /* font-family: 'Montserrat', sans-serif; */
@@ -203,3 +182,17 @@ Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC
  */
+
+/* **RULE ORDER** */
+/*
+Size
+Display
+Flex rules
+Color
+Font
+Text
+Margin
+Border
+Padding
+Other
+*/
