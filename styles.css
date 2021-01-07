@@ -48,15 +48,32 @@ main {
   margin-bottom: 12px;
 }
 
+.activity-title {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+  font-weight: 300;
+  color: #CBC9CF;
+  font-size: 18px;
+  padding-top: 1.75em;
+  padding-bottom: 1em;
+}
+
 .user-input {
   background-color: #46424D;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  flex-basis: auto;
   align-self: start;
   padding: 2em 6em;
   margin-left: 2em;
+  margin: 0 auto;
   height: 100%;
-  width: 80%;
+  width: 90%;
+  max-width: 1000px;
   box-shadow: 10px 10px 10px #26222D;
 }
 
@@ -64,6 +81,7 @@ main {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
+  /* max-width: 600px; */
 }
 
 .activity > li > button {
@@ -72,7 +90,9 @@ main {
   background-color: #46424D;
   color: white;
   height: 4.5em;
-  width: 10em;
+  width: 10vw;
+  flex-grow: 2;
+  margin-top: -2em;
 }
 
 button:hover {
@@ -92,7 +112,7 @@ form {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  height: 25em;
+  height: 20em;
 }
 
 input {
@@ -101,8 +121,10 @@ input {
   font-weight: 300;
   border: none;
   border-bottom: .1em solid #CBC9CF;
+  margin-bottom: 0px;
   /* align-self: flex-end; */
 }
+
 
 .time-boxes {
   display: flex;
@@ -114,7 +136,6 @@ input {
   /* justify-content: space-between; */
 }
 
-
 .minutes,
 .seconds {
   display: flex;
@@ -123,10 +144,10 @@ input {
 }
 
 .minutes {
-  padding-right: 10px;
+  margin-right: 35px;
 }
 .seconds {
-  padding-left: 10px;
+  margin-left: 35px;
 }
 
 /* .seconds > input{
@@ -143,25 +164,19 @@ input {
   border-radius: 2px;
   align-self: flex-end;
   color: #2B2733;
-  font-size: 12px;
-  padding: 4px 18px;
+  font-size: 16px;
+  padding: 7px 22px;
 }
 
 /* **TEXT STYLES** */
 label {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
   color: #FFF;
-  margin: 18px 0;
+  margin: 3em 0;
 }
 
 /* section title */
-h2 {
-  font-weight: 300;
-  color: #CBC9CF;
-  font-size: 18px;
-  padding: 1.5em 1.7em 1em;
-}
 
 h4 {
 
