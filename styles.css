@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -25,14 +26,19 @@ main {
 }
 
 .new-activity {
-  height: 100%;
+  height: 677px;
   width: 66%;
   display: flex;
   flex-direction: column;
 }
 
+.activity-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .user-input-card {
-  height: 100%;
+  height: 85%;
   width: 90%;
   max-width: 1000px;
   display: flex;
@@ -90,6 +96,11 @@ input {
   list-style-type: none;
 }
 
+.create-activity {
+  display: flex;
+  flex-direction: column;
+}
+
 /* **BUTTON STYLES** */
 button:hover {
   cursor: pointer;
@@ -144,6 +155,30 @@ img {
   padding: 7px 22px;
 }
 
+.create-activity > button {
+  height: 200px;
+  width: 200px;
+  align-self: center;
+  background-color: #46424D;
+  color: #FFF;
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: 2px solid #C278FD; ;
+  border-radius: 50%;
+}
+
+.log-activity {
+  display: flex;
+  width: 100%;
+}
+
+.log-activity > button {
+  margin: 0 auto;
+  width: 200px;
+}
+
 /* **TEXT STYLES** */
 .section-title {
   width: 90%;
@@ -162,6 +197,19 @@ label {
   font-weight: 400;
   font-size: 16px;
   margin: 3em 0;
+}
+
+.create-activity > p {
+  color: #CBC9CF;
+  font-size: 18px;
+  padding-bottom: 0;
+}
+
+.timer {
+  font-size: 5em;
+  font-weight: bold;
+  padding: 0;
+  padding-top: 0;
 }
 
 .past-activities > aside {
