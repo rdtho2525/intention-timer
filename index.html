@@ -15,27 +15,27 @@
       <section class="new-activity">
         <h2 class="section-title">New Activity</h2>
         <section class="user-input-card">
-          <label for="activity-list">Select a category:</label>
-          <ul class="activity-selection" id="activity-list">
-            <li><button type="button" name="button"><img src="./assets/study.svg">Study</button></li>
-            <li><button type="button" name="button"><img src="./assets/meditate.svg">Meditate</button></li>
-            <li><button type="button" name="button"><img src="./assets/exercise.svg">Exercise</button></li>
-          </ul>
-          <form>
-            <label for="goals">What would you like to accomplish during this time?</label>
-            <input type="text" name="activity-data" id="goals">
-              <div class='time-boxes'>
-                <div class="minutes">
-                  <label for="minutes">Minutes</label>
-                  <input type="text" name="activity-data" id="minutes">
+            <label id="activity-selector"for="activity-list">Select a category:</label>
+            <ul class="activity-selection" id="activity-list">
+              <li><button type="button" name="button" class="default-color study-btn"><img id="study" src="./assets/study.svg">Study</button></li>
+              <li><button type="button" name="button" class="default-color meditate-btn"><img id="meditate" src="./assets/meditate.svg">Meditate</button></li>
+              <li><button type="button" name="button" class="default-color exercise-btn"><img id="exercise" src="./assets/exercise.svg">Exercise</button></li>
+            </ul>
+            <form>
+              <label for="goals">What would you like to accomplish during this time?</label>
+              <input type="text" name="activity-data" id="goals">
+                <div class='time-boxes'>
+                  <div class="minutes">
+                    <label for="minutes">Minutes</label>
+                    <input type="text" name="activity-data" id="minutes">
+                  </div>
+                  <div class="seconds">
+                    <label for="seconds">Seconds</label>
+                    <input type="text" name="activity-data" id="seconds">
+                  </div>
                 </div>
-                <div class="seconds">
-                  <label for="seconds">Seconds</label>
-                  <input type="text" name="activity-data" id="seconds">
-                </div>
-              </div>
-          </form>
-          <button class="start-activity-button">START ACTIVITY</button>
+            </form>
+            <button id="start-button" class="start-activity-button">START ACTIVITY</button>
         </section>
       </section>
       <section class="past-activities">
@@ -46,5 +46,6 @@
         </aside>
       </section>
     </main>
+    <script src="main.js" type="text/javascript"></script>
   </body>
 </html>
