@@ -15,27 +15,37 @@
       <section class="new-activity">
         <h2 class="section-title">New Activity</h2>
         <section class="user-input-card">
-            <label id="activity-selector"for="activity-list">Select a category:</label>
-            <ul class="activity-selection" id="activity-list">
-              <li><button type="button" name="button" class="default-color study-btn"><img id="study" src="./assets/study.svg">Study</button></li>
-              <li><button type="button" name="button" class="default-color meditate-btn"><img id="meditate" src="./assets/meditate.svg">Meditate</button></li>
-              <li><button type="button" name="button" class="default-color exercise-btn"><img id="exercise" src="./assets/exercise.svg">Exercise</button></li>
-            </ul>
-            <form>
-              <label for="goals">What would you like to accomplish during this time?</label>
-              <input type="text" name="activity-data" id="goals">
-                <div class='time-boxes'>
-                  <div class="minutes">
-                    <label for="minutes">Minutes</label>
-                    <input type="text" name="activity-data" id="minutes">
+            <div id="activityForm" class="activity-form hidden">
+              <label id="activity-selector"for="activity-list">Select a category:</label>
+              <ul class="activity-selection" id="activity-list">
+                <li><button type="button" name="button" class="default-color study-btn"><img id="study" src="./assets/study.svg">Study</button></li>
+                <li><button type="button" name="button" class="default-color meditate-btn"><img id="meditate" src="./assets/meditate.svg">Meditate</button></li>
+                <li><button type="button" name="button" class="default-color exercise-btn"><img id="exercise" src="./assets/exercise.svg">Exercise</button></li>
+              </ul>
+              <form>
+                <label for="goals">What would you like to accomplish during this time?</label>
+                <input type="text" name="activity-data" id="goals">
+                  <div class='time-boxes'>
+                    <div class="minutes">
+                      <label for="minutes">Minutes</label>
+                      <input type="text" name="activity-data" id="minutes">
+                    </div>
+                    <div class="seconds">
+                      <label for="seconds">Seconds</label>
+                      <input type="text" name="activity-data" id="seconds">
+                    </div>
                   </div>
-                  <div class="seconds">
-                    <label for="seconds">Seconds</label>
-                    <input type="text" name="activity-data" id="seconds">
-                  </div>
-                </div>
-            </form>
-            <button id="start-button" class="start-activity-button">START ACTIVITY</button>
+              </form>
+              <button id="start-button" class="start-activity-button">START ACTIVITY</button>
+          </div>
+            <section id="createActivity" class="create-activity">
+              <p id="chosenActivity" class="heading">Deep Breathing</p>
+              <div id="timeRemaining" class="heading timer">05:00</div>
+              <button id="timerButton">START</button>
+              <div class="log-activity">
+                <button id="logActivity" class="start-activity-button">LOG ACTIVITY</button>
+              </div>
+            </section>
         </section>
       </section>
       <section class="past-activities">
