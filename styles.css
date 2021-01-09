@@ -93,7 +93,7 @@ input {
 .activity-selection {
   display: flex;
   justify-content: space-between;
-  list-style-type: none;
+  margin-bottom: -30px;
 }
 
 .create-activity {
@@ -102,77 +102,63 @@ input {
 }
 
 /* **BUTTON STYLES** */
-button:hover {
+label:hover {
   cursor: pointer;
 }
 
 /* HIDE RADIO */
-[type=radio] {
-  position: absolute;
+.activity-selection input[type="radio"] {
+  position: fixed;
   opacity: 0;
-  width: 0;
-  height: 0;
 }
-/* IMAGE STYLES */
-[type=radio] + img {
-  cursor: pointer;
-}
+
 /* CHECKED STYLES */
-[type=radio]:checked + img {
-  outline: 2px solid #f00;
-}
-
-.activity-selection > li > button {
-  height: 4.5em;
-  width: 10vw;
-  flex-grow: 2;
-  background-color: #46424D;
-  margin-top: -2em;
-  border-radius: 4px;
-  border: 2px solid;
-}
-
-.activity-selection > li > input {
-  height: 4.5em;
-  width: 10vw;
-  flex-grow: 2;
-  background-color: #46424D;
-  margin-top: -2em;
-  border-radius: 4px;
-  border: 2px solid;
-}
-
-.study-btn {
+.activity-selection input[type="radio"][id="study"]:checked + label {
   color: #B3FD78;
   border-color: #B3FD78;
 }
 
-.meditate-btn {
+.activity-selection input[type="radio"][id="meditate"]:checked + label {
   color: #C278FD;
   border-color: #C278FD;
 }
 
-.exercise-btn {
+.activity-selection input[type="radio"][id="exercise"]:checked + label {
   color: #FD8078;
   border-color: #FD8078;
 }
 
-.default-color {
-  color: #FFF;
-  border-color: #CBC9CF;
+.activity-selection > label {
+  height: 4.5em;
+  width: 10vw;
+  max-width: 25%;
+  min-width: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* flex-grow: 2; */
+  background-color: #46424D;
+  text-align: center;
+  margin-top: -2em;
+  border-radius: 4px;
+  border: 2px solid #CBC9CF;
+}
+
+.icon-styling {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  position: relative;
 }
 
 .icon {
+  align-self:center;
   height: 2em;
   width: 2em;
-  display: block;
-  position: relative;
+  /* display: block; */
+  position: absolute;
   margin: 0 auto;
   transform: scale(.75);
-}
-
-.alt-icon {
-  position: absolute;
 }
 
 .start-activity-button {

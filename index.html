@@ -19,15 +19,22 @@
       <section class="user-input-card">
         <div id="activityForm" class="activity-form">
           <label for="activity-list">Select a category:</label>
-          <ul class="activity-selection" id="activity-list">
-            <!-- <li><button type="button" name="button" class="default-color"><img class="icon" id="study" src="./assets/study.svg"><img class="alt-icon icon" src="./assets/study-active.svg">Study</button></li> -->
-            <!-- <li><button type="radio" id="studyBtn" name="button" value="Study" class="default-color study-btn btn"><img class="icon btn" id="study" src="./assets/study.svg">Study</button></li>
-            <li><button type="radio" id="meditateBtn" name="button" value="Meditate" class="default-color meditate-btn btn"><img class="icon btn" id="meditate" src="./assets/meditate.svg">Meditate</button></li>
-            <li><button type="radio" id="exerciseBtn" name="button" value="Exercise" class="default-color exercise-btn btn"><img class="icon btn" id="exercise" src="./assets/exercise.svg">Exercise</button></li> -->
-            <label><input type="radio" name="test" value="study"><img class="icon" src="./assets/study.svg">Study</label>
-            <label><input type="radio" name="test" value="meditate"><img class="icon" src="./assets/meditate.svg">Meditate</label>
-            <label><input type="radio" name="test" value="exercise"><img class="icon" src="./assets/exercise.svg">Exercise</label>
-          </ul>
+
+          <div class="activity-selection" id="activity-list">
+            <input id="study" type="radio" name="choice" value="study">
+            <label for="study"><img class="icon" src="./assets/study.svg">Study</label>
+
+            <input id="meditate" type="radio" name="choice" value="meditate">
+            <label for="meditate">
+              <div class="icon-styling">
+                <img class="icon" src="./assets/meditate-active.svg"><img class="icon" src="./assets/meditate.svg">
+              </div>
+                Meditate</label>
+
+            <input id="exercise" type="radio" name="choice" value="exercise">
+            <label for="exercise"><img class="icon" src="./assets/exercise.svg">Exercise</label>
+          </div>
+
           <form>
             <label for="goals">What would you like to accomplish during this time?</label>
             <input type="text" name="activity-data" id="goals">
