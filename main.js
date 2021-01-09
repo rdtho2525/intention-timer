@@ -16,28 +16,35 @@ var createActivity = document.querySelector("#createActivity");
 var timerButton = document.querySelector("#timerButton");
 var timeRemaining = document.querySelector("#timeRemaining");
 
+var currentChoice = document.getElementsByName("choice");
+
 // GLOBAL VARIABLES------
-var activity = new Activity(exerciseBtn.value, userGoal.value);
+// var activity = new Activity(exerciseBtn.value, userGoal.value);
 
 // EVENT LISTENERS--------
 
 //
 activitySelect.addEventListener('click', function(event) {
-  // console.log(event.target.value);
-  // console.log(event.target.firstChild);
-  // console.log(event.target.className);
-  if (event.target.className != 'icon btn') {
-    event.target.classList.toggle("default-color");
-    event.target.firstChild.src = `./assets/${event.target.firstChild.id}-active.svg`;
-  // check the event.target.classList if it inlcudes default color
-  // use string methods to remove ""-active" from src
-  }
-  else {
-    event.target.parentNode.classList.toggle("default-color");
-    event.target.src = `./assets/${event.target.id}-active.svg`;
-  }
-// FIX COLOR CHANGE FUNCTIONALITY
-// DETERMINE HOW BUTTONS FEED startActivity()
+  console.log(currentChoice);
+
+  // fire loop
+  //  toggle hidden
+  //  locate the checked boxes
+  // pass the value of value
+  // event.target.classList.toggle("hidden");
+
+  // event.target.nextSibling.toggle("default-color");
+
+  // if (event.target.className != 'icon btn') {
+  //   event.target.classList.toggle("default-color");
+  //   event.target.firstChild.src = `./assets/${event.target.firstChild.id}-active.svg`;
+  // // check the event.target.classList if it inlcudes default color
+  // // use string methods to remove ""-active" from src
+  // }
+  // else {
+  //   event.target.parentNode.classList.toggle("default-color");
+  //   event.target.src = `./assets/${event.target.id}-active.svg`;
+  // }
 });
 
 startButton.addEventListener('click', startActivity);
