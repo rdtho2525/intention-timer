@@ -13,14 +13,14 @@
     </header>
     <main>
       <section class="new-activity">
-        <h2 class="section-title">New Activity</h2>
+        <h2 id="activityTitle" class="section-title">New Activity</h2>
         <section class="user-input-card">
-            <div id="activityForm" class="activity-form hidden">
+            <div id="activityForm" class="activity-form">
               <label id="activity-selector"for="activity-list">Select a category:</label>
               <ul class="activity-selection" id="activity-list">
-                <li><button type="button" name="button" class="default-color study-btn"><img id="study" src="./assets/study.svg">Study</button></li>
-                <li><button type="button" name="button" class="default-color meditate-btn"><img id="meditate" src="./assets/meditate.svg">Meditate</button></li>
-                <li><button type="button" name="button" class="default-color exercise-btn"><img id="exercise" src="./assets/exercise.svg">Exercise</button></li>
+                <li><button name="button" value="Study" class="default-color study-btn"><img id="study" src="./assets/study.svg">Study</button></li>
+                <li><button name="button" value="Meditate" class="default-color meditate-btn"><img id="meditate" src="./assets/meditate.svg">Meditate</button></li>
+                <li><button name="button" value="Exercise" class="default-color exercise-btn" id="exercise"><img src="./assets/exercise.svg">Exercise</button></li>
               </ul>
               <form>
                 <label for="goals">What would you like to accomplish during this time?</label>
@@ -38,12 +38,12 @@
               </form>
               <button id="start-button" class="start-activity-button">START ACTIVITY</button>
           </div>
-            <section id="createActivity" class="create-activity">
+            <section id="createActivity" class="create-activity hidden">
               <p id="chosenActivity" class="heading">Deep Breathing</p>
               <div id="timeRemaining" class="heading timer">05:00</div>
               <button id="timerButton">START</button>
               <div class="log-activity">
-                <button id="logActivity" class="start-activity-button">LOG ACTIVITY</button>
+                <button id="logActivity" class="start-activity-button hidden">LOG ACTIVITY</button>
               </div>
             </section>
         </section>
@@ -56,6 +56,7 @@
         </aside>
       </section>
     </main>
+    <script src="Activity.js" type="text/javascript"></script>
     <script src="main.js" type="text/javascript"></script>
   </body>
 </html>
