@@ -23,6 +23,7 @@ class Activity {
         if (min === 0 && sec === 0) {
           clearInterval(counterSec);
           setTimeout(runAlert, 1000);
+          this.completed = true;
         }
       }
       timeRemaining.innerText = `${(min < 10 ? "0" : "") + min}:${(sec < 10 ? "0" : "") + sec}`

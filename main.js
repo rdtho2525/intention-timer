@@ -16,7 +16,7 @@ var createActivity = document.querySelector("#createActivity");
 var timerButton = document.querySelector("#timerButton");
 var timeRemaining = document.querySelector("#timeRemaining");
 var chosenActivity = document.querySelector("#chosenActivity")
-
+var logActivity = document.querySelector("#logActivity");
 
 // GLOBAL VARIABLES------
 
@@ -83,5 +83,6 @@ function startActivity() {
 
 function startActivityTimer() {
   var activity = new Activity(exerciseBtn.value, userGoal.value, minutes.value, seconds.value);
+  timerButton.disabled = true;
   activity.startTimer();
 }
