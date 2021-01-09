@@ -12,22 +12,29 @@
       <h1 class="heading">INTENTION TIMER</h1>
     </header>
     <main>
-      <section class="new-activity">
+      <section id='activity-card' class="new-activity">
         <h2 class="section-title">New Activity</h2>
         <section class="user-input-card">
             <label id="activity-selector"for="activity-list">Select a category:</label>
             <ul class="activity-selection" id="activity-list">
-              <li><button type="button" name="button" class="default-color study-btn"><img id="study" src="./assets/study.svg">Study</button></li>
-              <li><button type="button" name="button" class="default-color meditate-btn"><img id="meditate" src="./assets/meditate.svg">Meditate</button></li>
-              <li><button type="button" name="button" class="default-color exercise-btn"><img id="exercise" src="./assets/exercise.svg">Exercise</button></li>
+              <!-- <li><button type="button" name="button" class="default-color"><img class="icon" id="study" src="./assets/study.svg"><img class="alt-icon icon" src="./assets/study-active.svg">Study</button></li> -->
+              <li><button type="button" name="button" class="default-color study-btn"><img class="icon" id="study" src="./assets/study.svg">Study</button></li>
+              <li><button type="button" name="button" class="default-color meditate-btn"><img class="icon" id="meditate" src="./assets/meditate.svg">Meditate</button></li>
+              <li><button type="button" name="button" class="default-color exercise-btn"><img class="icon" id="exercise" src="./assets/exercise.svg">Exercise</button></li>
             </ul>
             <form>
               <label for="goals">What would you like to accomplish during this time?</label>
               <input type="text" name="activity-data" id="goals">
+              <div id="goal-error-message" class="error-message-style invisible">
+                <img class="error-icon" src ="./assets/warning.svg"> <p>A description is required.</p>
+              </div>
                 <div class='time-boxes'>
                   <div class="minutes">
                     <label for="minutes">Minutes</label>
                     <input type="text" name="activity-data" id="minutes">
+                    <div id="number-error-message" class="error-message-style invisible">
+                      <img class="error-icon" src ="./assets/warning.svg"> <p>Two numbers are required.</p>
+                    </div>
                   </div>
                   <div class="seconds">
                     <label for="seconds">Seconds</label>

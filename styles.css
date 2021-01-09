@@ -125,13 +125,17 @@ button:hover {
   border-color: #CBC9CF;
 }
 
-img {
+.icon {
   height: 2em;
   width: 2em;
   display: block;
   position: relative;
   margin: 0 auto;
   transform: scale(.75);
+}
+
+.alt-icon {
+  position: absolute;
 }
 
 .start-activity-button {
@@ -176,14 +180,32 @@ label {
   margin-bottom: 12px;
 }
 
+/* **ERROR STYLES** */
+.error-message-style {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #EFB7EC;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.error-icon {
+  height: 2em;
+  width: 2em;
+  transform: scale(.55);
+}
+
 /* **UTILITY CLASSES** */
 .hidden {
   display: none;
 }
 
+.invisible {
+  opacity: 0
+}
 
 /* **PAGE SPECS** */
-
 
 /* **FONTS** */
 /* font-family: 'Montserrat', sans-serif; */
