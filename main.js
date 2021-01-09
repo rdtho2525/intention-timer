@@ -15,11 +15,13 @@ var activityForm = document.querySelector("#activityForm");
 var createActivity = document.querySelector("#createActivity");
 var timerButton = document.querySelector("#timerButton");
 var timeRemaining = document.querySelector("#timeRemaining");
+var chosenActivity = document.querySelector("#chosenActivity")
+var logActivity = document.querySelector("#logActivity");
 
 var currentChoice = document.getElementsByName("choice");
 
 // GLOBAL VARIABLES------
-// var activity = new Activity(exerciseBtn.value, userGoal.value);
+
 
 // EVENT LISTENERS--------
 
@@ -48,7 +50,7 @@ activitySelect.addEventListener('click', function(event) {
 });
 
 startButton.addEventListener('click', startActivity);
-// timerButton.addEventListener('click', startTimer);
+timerButton.addEventListener('click', startActivityTimer);
 
 // FUNCTIONS----
 function hide(element) {
@@ -80,7 +82,15 @@ function startActivity() {
   if (checkInput() === true) {
     hide(activityForm);
     unhide(createActivity);
-    // timerButton.classList.add()
-    activityTitle.innerText = 'Create Activity'
+    // timerButton.classList.add(`${}`)
+    activityTitle.innerText = 'Create Activity';
+    chosenActivity.innerText = userGoal.value;
+    timeRemaining.innerText = `${(minutes.value < 10 ? "0" : "") + minutes.value}:${(seconds.value < 10 ? "0" : "") + seconds.value}`
   }
 };
+
+function startActivityTimer() {
+  var activity = new Activity(exerciseBtn.value, userGoal.value, minutes.value, seconds.value);
+  timerButton.disabled = true;
+  activity.startTimer();
+}

@@ -1,29 +1,33 @@
 class Activity {
-  constructor(category, description) {
+  constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
-    this.minutes = 0;
-    this.seconds = 0;
+    this.minutes = minutes;
+    this.seconds = seconds;
     this.completed = false;
     this.id = Date.now();
   }
   startTimer() {
-    this.minutes = minutesInput.value;
-    this.seconds = secondsInput.value;
     var counterSec = setInterval(timer, 1000);
+    var min = this.minutes;
+    var sec = this.seconds;
+    function runAlert() {
+      return alert('Time\'s Up!');
+    }
     function timer() {
-      this.seconds--;
-      if (this.seconds < 0) {
-         this.minutes--
-         this.seconds = 59;
+      sec--;
+      if (sec < 0) {
+         min--
+         sec = 59;
       } else {
-        if (this.minutes === 0 && this.seconds === 0) {
+        if (min === 0 && sec === 0) {
           clearInterval(counterSec);
+          setTimeout(runAlert, 1000);
+          this.completed = true;
         }
       }
-      timeRemaining.innerText = `${this.minutes} : ${this.seconds}`
+      timeRemaining.innerText = `${(min < 10 ? "0" : "") + min}:${(sec < 10 ? "0" : "") + sec}`
     }
-    alert('Time\'s Up!')
   }
 
   markComplete() {
@@ -33,5 +37,3 @@ class Activity {
 
   }
 }
-
-// module.exports = Activity;
