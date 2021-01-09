@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -25,14 +26,19 @@ main {
 }
 
 .new-activity {
-  height: 100%;
+  height: 677px;
   width: 66%;
   display: flex;
   flex-direction: column;
 }
 
+.activity-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .user-input-card {
-  height: 100%;
+  height: 85%;
   width: 90%;
   max-width: 1000px;
   display: flex;
@@ -87,49 +93,70 @@ input {
 .activity-selection {
   display: flex;
   justify-content: space-between;
-  list-style-type: none;
+  margin-bottom: -30px;
+}
+
+.create-activity {
+  display: flex;
+  flex-direction: column;
 }
 
 /* **BUTTON STYLES** */
-button:hover {
+label:hover {
   cursor: pointer;
 }
 
-.activity-selection > li > button {
-  height: 4.5em;
-  width: 10vw;
-  flex-grow: 2;
-  background-color: #46424D;
-  margin-top: -2em;
-  border-radius: 4px;
-  border: 2px solid;
+/* HIDE RADIO */
+.activity-selection input[type="radio"] {
+  position: fixed;
+  opacity: 0;
 }
 
-.study-btn {
+/* CHECKED STYLES */
+.activity-selection input[type="radio"][id="study"]:checked + label {
   color: #B3FD78;
   border-color: #B3FD78;
 }
 
-.meditate-btn {
+.activity-selection input[type="radio"][id="meditate"]:checked + label {
   color: #C278FD;
   border-color: #C278FD;
 }
 
-.exercise-btn {
+.activity-selection input[type="radio"][id="exercise"]:checked + label {
   color: #FD8078;
   border-color: #FD8078;
 }
 
-.default-color {
-  color: #FFF;
-  border-color: #CBC9CF;
+.activity-selection > label {
+  height: 4.5em;
+  width: 10vw;
+  max-width: 25%;
+  min-width: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* flex-grow: 2; */
+  background-color: #46424D;
+  text-align: center;
+  margin-top: -2em;
+  border-radius: 4px;
+  border: 2px solid #CBC9CF;
 }
 
-img {
+.icon-styling {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  position: relative;
+}
+
+.icon {
+  align-self:center;
   height: 2em;
   width: 2em;
-  display: block;
-  position: relative;
+  /* display: block; */
+  position: absolute;
   margin: 0 auto;
   transform: scale(.75);
 }
@@ -142,6 +169,30 @@ img {
   border: none;
   border-radius: 2px;
   padding: 7px 22px;
+}
+
+.create-activity > button {
+  height: 200px;
+  width: 200px;
+  align-self: center;
+  background-color: #46424D;
+  color: #FFF;
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: 2px solid #C278FD;
+  border-radius: 50%;
+}
+
+.log-activity {
+  display: flex;
+  width: 100%;
+}
+
+.log-activity > button {
+  margin: 0 auto;
+  width: 200px;
 }
 
 /* **TEXT STYLES** */
@@ -164,6 +215,19 @@ label {
   margin: 3em 0;
 }
 
+.create-activity > p {
+  color: #CBC9CF;
+  font-size: 18px;
+  padding-bottom: 0;
+}
+
+.timer {
+  font-size: 5em;
+  font-weight: bold;
+  padding: 0;
+  padding-top: 0;
+}
+
 .past-activities > aside {
   color: #CBC9CF;
   font-weight: 400;
@@ -176,14 +240,32 @@ label {
   margin-bottom: 12px;
 }
 
+/* **ERROR STYLES** */
+.error-message-style {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #EFB7EC;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.error-icon {
+  height: 2em;
+  width: 2em;
+  transform: scale(.55);
+}
+
 /* **UTILITY CLASSES** */
 .hidden {
   display: none;
 }
 
+.invisible {
+  opacity: 0
+}
 
 /* **PAGE SPECS** */
-
 
 /* **FONTS** */
 /* font-family: 'Montserrat', sans-serif; */
