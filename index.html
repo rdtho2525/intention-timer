@@ -19,22 +19,32 @@
       <section class="user-input-card">
         <div id="activityForm" class="activity-form">
           <label for="activity-list">Select a category:</label>
-
           <div class="activity-selection" id="activity-list">
             <input id="study" type="radio" name="choice" value="study">
-            <label for="study"><img class="icon" src="./assets/study.svg">Study</label>
-
+              <label class="hover" for="study">
+                <div class="icon-styling hover">
+                  <img class="icon" src="./assets/study-active.svg">
+                  <img id="studyImg" class="icon" src="./assets/study.svg">
+                </div>
+                Study
+              </label>
             <input id="meditate" type="radio" name="choice" value="meditate">
-            <label for="meditate">
-              <div class="icon-styling">
-                <img class="icon" src="./assets/meditate-active.svg"><img class="icon" src="./assets/meditate.svg">
+            <label class="hover" for="meditate">
+              <div class="icon-styling hover">
+                <img class="icon" src="./assets/meditate-active.svg">
+                <img id="meditateImg"class="icon" src="./assets/meditate.svg">
               </div>
-                Meditate</label>
-
+                Meditate
+            </label>
             <input id="exercise" type="radio" name="choice" value="exercise">
-            <label for="exercise"><img class="icon" src="./assets/exercise.svg">Exercise</label>
+            <label class="hover" for="exercise">
+              <div class="icon-styling hover">
+                <img class="icon" src="./assets/exercise-active.svg">
+                <img id="exerciseImg" class="icon hidden" src="./assets/exercise.svg">
+              </div>
+              Exercise
+            </label>
           </div>
-
           <form>
             <label for="goals">What would you like to accomplish during this time?</label>
             <input type="text" name="activity-data" id="goals">
