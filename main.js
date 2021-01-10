@@ -17,6 +17,8 @@ var timerButton = document.querySelector("#timerButton");
 var timeRemaining = document.querySelector("#timeRemaining");
 var chosenActivity = document.querySelector("#chosenActivity")
 var logActivity = document.querySelector("#logActivity");
+var pastActivityDefault = document.querySelector("#past-activity-default-message");
+var pastCardList = document.querySelector("#past-activities");
 
 
 var currentChoice = document.getElementsByName("choice");
@@ -26,10 +28,10 @@ var activityData = []; // I add created this global variable to hold all our act
 
 
 // EVENT LISTENERS--------
-
 activitySelect.addEventListener('click', selectActivity);
 startButton.addEventListener('click', startActivity);
 timerButton.addEventListener('click', startActivityTimer);
+logActivity.addEventListener('click', addActivityCard);
 
 // FUNCTIONS----
 function hide(element) {
@@ -53,6 +55,7 @@ function checkInput() {
     numError.classList.toggle("invisible");
     inputIsGood = false;
   }
+
   return inputIsGood;
 }
 
@@ -60,6 +63,7 @@ function selectActivity() {
   for (var i = 0; i < currentChoice.length; i++) {
     if (currentChoice[i].checked === true) {
       currentCategory = currentChoice[i].value;
+      console.log(currentCategory);
       var colorClass = `${currentCategory}Color`;
       timerButton.classList.add(colorClass);
     }
@@ -82,5 +86,20 @@ function startActivity() {
 function startActivityTimer() {
   timerButton.disabled = true;
   activityData[0].startTimer(); //grabs the most recent activity added to the data model
+}
 
+function addActivityCard() {
+  hide(pastActivityDefault);
+  unhide(pastCardList);
+  var newCard = document.createElement('li');
+  newCard.classList.add('past-activity-card');
+  newCard.innerHTML=
+  `  <aside>
+        <p id="pastActivityTitle" class="past-activity-title">${activityData[0].category}</p>
+        <p id="pastActivityTime" class="past-activity-time">${activityData[0].minutes} MIN</p>
+        <p id="pastActivityGoal" class="past-activity-goal">${activityData[0].description}</p>
+     </aside>
+     <div class="past-activity-highlight ${activityData[0].category}-highlight"></div>
+  `;
+  pastCardList.appendChild(newCard);
 }
