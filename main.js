@@ -23,17 +23,7 @@ var currentChoice = document.getElementsByName("choice");
 
 
 // EVENT LISTENERS--------
-
-//
-activitySelect.addEventListener('click', function(event) {
-  for (i = 0; i < currentChoice.length; i++) {
-    if (currentChoice[i].checked) {
-      output = document.querySelector(`#${currentChoice[i].value}`)
-      output.classList.toggle("hidden")
-    }
-  }
-});
-
+activitySelect.addEventListener('click', selectOption);
 startButton.addEventListener('click', startActivity);
 timerButton.addEventListener('click', startActivityTimer);
 
@@ -44,6 +34,18 @@ function hide(element) {
 
 function unhide(element) {
   return element.classList.remove('hidden')
+}
+
+function selectOption() {
+  for (i = 0; i < currentChoice.length; i++) {
+    output = document.querySelector(`#${currentChoice[i].value}`);
+    currentChoice[i].checked ? unhide(output) : hide(output);
+    // if (currentChoice[i].checked) {
+    //   unhide(output)
+    // } else {
+    //   hide(output)
+    // }
+  }
 }
 
 function checkInput() {
