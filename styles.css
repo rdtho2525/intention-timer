@@ -181,8 +181,19 @@ label:hover {
   font-weight: 300;
   margin-top: 2em;
   margin-bottom: 2em;
-  border: 2px solid #C278FD;
   border-radius: 50%;
+}
+
+.studyColor {
+  border: 2px solid #B3FD78;
+}
+
+.meditateColor{
+  border: 2px solid #C278FD;
+}
+
+.exerciseColor {
+  border: 2px solid #FD8078;
 }
 
 .log-activity {

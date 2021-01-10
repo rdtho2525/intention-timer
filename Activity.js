@@ -11,8 +11,9 @@ class Activity {
     var counterSec = setInterval(timer, 1000);
     var min = this.minutes;
     var sec = this.seconds;
-    function runAlert() {
-      return alert('Time\'s Up!');
+    function updateButton() {
+      timerButton.innerText = `COMPLETE!`;
+      logActivity.classList.toggle("hidden");
     }
     function timer() {
       sec--;
@@ -22,7 +23,7 @@ class Activity {
       } else {
         if (min === 0 && sec === 0) {
           clearInterval(counterSec);
-          setTimeout(runAlert, 1000);
+          setTimeout(updateButton, 1000);
           this.completed = true;
         }
       }

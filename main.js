@@ -18,37 +18,16 @@ var timeRemaining = document.querySelector("#timeRemaining");
 var chosenActivity = document.querySelector("#chosenActivity")
 var logActivity = document.querySelector("#logActivity");
 
-var currentChoice = document.getElementsByName("choice");
 
+var currentChoice = document.getElementsByName("choice");
 // GLOBAL VARIABLES------
+var currentCategory = "";
+var activityData = []; // I add created this global variable to hold all our activities so we have a stable data model.
 
 
 // EVENT LISTENERS--------
 
-//
-activitySelect.addEventListener('click', function(event) {
-  console.log(currentChoice);
-
-  // fire loop
-  //  toggle hidden
-  //  locate the checked boxes
-  // pass the value of value
-  // event.target.classList.toggle("hidden");
-
-  // event.target.nextSibling.toggle("default-color");
-
-  // if (event.target.className != 'icon btn') {
-  //   event.target.classList.toggle("default-color");
-  //   event.target.firstChild.src = `./assets/${event.target.firstChild.id}-active.svg`;
-  // // check the event.target.classList if it inlcudes default color
-  // // use string methods to remove ""-active" from src
-  // }
-  // else {
-  //   event.target.parentNode.classList.toggle("default-color");
-  //   event.target.src = `./assets/${event.target.id}-active.svg`;
-  // }
-});
-
+activitySelect.addEventListener('click', selectActivity);
 startButton.addEventListener('click', startActivity);
 timerButton.addEventListener('click', startActivityTimer);
 
@@ -76,8 +55,17 @@ function checkInput() {
   }
   return inputIsGood;
 }
-// MATT ZONE-UP
-// REGGIE ZONE-DOWN
+
+function selectActivity() {
+  for (var i = 0; i < currentChoice.length; i++) {
+    if (currentChoice[i].checked === true) {
+      currentCategory = currentChoice[i].value;
+      var colorClass = `${currentCategory}Color`;
+      timerButton.classList.add(colorClass);
+    }
+  }
+}
+
 function startActivity() {
   if (checkInput() === true) {
     hide(activityForm);
@@ -86,11 +74,13 @@ function startActivity() {
     activityTitle.innerText = 'Create Activity';
     chosenActivity.innerText = userGoal.value;
     timeRemaining.innerText = `${(minutes.value < 10 ? "0" : "") + minutes.value}:${(seconds.value < 10 ? "0" : "") + seconds.value}`
+    var activity = new Activity(currentCategory, userGoal.value, minutes.value, seconds.value);
+    activityData.unshift(activity); //Add this activity to the data model
   }
 };
 
 function startActivityTimer() {
-  var activity = new Activity(exerciseBtn.value, userGoal.value, minutes.value, seconds.value);
   timerButton.disabled = true;
-  activity.startTimer();
+  activityData[0].startTimer(); //grabs the most recent activity added to the data model
+
 }
