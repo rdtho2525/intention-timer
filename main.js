@@ -40,11 +40,6 @@ function selectOption() {
   for (i = 0; i < currentChoice.length; i++) {
     output = document.querySelector(`#${currentChoice[i].value}`);
     currentChoice[i].checked ? unhide(output) : hide(output);
-    // if (currentChoice[i].checked) {
-    //   unhide(output)
-    // } else {
-    //   hide(output)
-    // }
   }
 }
 
