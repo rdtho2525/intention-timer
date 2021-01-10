@@ -17,7 +17,6 @@ var timerButton = document.querySelector("#timerButton");
 var timeRemaining = document.querySelector("#timeRemaining");
 var chosenActivity = document.querySelector("#chosenActivity")
 var logActivity = document.querySelector("#logActivity");
-
 var currentChoice = document.getElementsByName("choice");
 
 // GLOBAL VARIABLES------
@@ -27,26 +26,12 @@ var currentChoice = document.getElementsByName("choice");
 
 //
 activitySelect.addEventListener('click', function(event) {
-  console.log(currentChoice);
-
-  // fire loop
-  //  toggle hidden
-  //  locate the checked boxes
-  // pass the value of value
-  // event.target.classList.toggle("hidden");
-
-  // event.target.nextSibling.toggle("default-color");
-
-  // if (event.target.className != 'icon btn') {
-  //   event.target.classList.toggle("default-color");
-  //   event.target.firstChild.src = `./assets/${event.target.firstChild.id}-active.svg`;
-  // // check the event.target.classList if it inlcudes default color
-  // // use string methods to remove ""-active" from src
-  // }
-  // else {
-  //   event.target.parentNode.classList.toggle("default-color");
-  //   event.target.src = `./assets/${event.target.id}-active.svg`;
-  // }
+  for (i = 0; i < currentChoice.length; i++) {
+    if (currentChoice[i].checked) {
+      output = document.querySelector(`#${currentChoice[i].value}`)
+      output.classList.toggle("hidden")
+    }
+  }
 });
 
 startButton.addEventListener('click', startActivity);
