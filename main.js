@@ -12,7 +12,7 @@ var meditateBtn = document.querySelector("#meditate");
 var exerciseBtn = document.querySelector("#exercise");
 var activityTitle = document.querySelector("#activityTitle");
 var activityForm = document.querySelector("#activityForm");
-var createActivity = document.querySelector("#createActivity");
+var currentActivity = document.querySelector("#currentActivity");
 var timerButton = document.querySelector("#timerButton");
 var timeRemaining = document.querySelector("#timeRemaining");
 var chosenActivity = document.querySelector("#chosenActivity")
@@ -88,8 +88,8 @@ function selectActivity() {
 function startActivity() {
   if (checkInput()) {
     hide(activityForm);
-    unhide(createActivity);
-    activityTitle.innerText = 'Create Activity';
+    unhide(currentActivity);
+    activityTitle.innerText = 'Current Activity';
     chosenActivity.innerText = userGoal.value;
     timeRemaining.innerText = `${(minutes.value < 10 ? "0" : "") + minutes.value}:${(seconds.value < 10 ? "0" : "") + seconds.value}`
     var activity = new Activity(currentCategory, userGoal.value, minutes.value, seconds.value);

@@ -96,7 +96,7 @@ input {
   margin-bottom: -30px;
 }
 
-.create-activity {
+.current-activity {
   display: flex;
   flex-direction: column;
 }
@@ -174,7 +174,7 @@ input[value="exercise"]:checked + label {
   padding: 7px 22px;
 }
 
-.create-activity > button {
+.current-activity > button {
   height: 200px;
   width: 200px;
   align-self: center;
@@ -284,7 +284,7 @@ label {
   margin: 3em 0;
 }
 
-.create-activity > p {
+.current-activity > p {
   font-size: 18px;
   padding-bottom: 0;
 }
