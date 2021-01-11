@@ -19,16 +19,16 @@ var chosenActivity = document.querySelector("#chosenActivity")
 var logActivity = document.querySelector("#logActivity");
 var pastActivityDefault = document.querySelector("#past-activity-default-message");
 var pastCardList = document.querySelector("#past-activities");
-
-
 var currentChoice = document.getElementsByName("choice");
+
 // GLOBAL VARIABLES------
 var currentCategory = "";
 var activityData = []; // I add created this global variable to hold all our activities so we have a stable data model.
 
 
 // EVENT LISTENERS--------
-activitySelect.addEventListener('click', selectActivity);
+activitySelect.addEventListener('click', selectActivity); //needs reviewing
+activitySelect.addEventListener('click', selectOption); //needs reviewing
 startButton.addEventListener('click', startActivity);
 timerButton.addEventListener('click', startActivityTimer);
 logActivity.addEventListener('click', addActivityCard);
@@ -40,6 +40,13 @@ function hide(element) {
 
 function unhide(element) {
   return element.classList.remove('hidden')
+}
+
+function selectOption() {
+  for (i = 0; i < currentChoice.length; i++) {
+    output = document.querySelector(`#${currentChoice[i].value}`);
+    currentChoice[i].checked ? unhide(output) : hide(output);
+  }
 }
 
 function checkInput() {
