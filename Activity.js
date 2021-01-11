@@ -36,5 +36,15 @@ class Activity {
   }
   saveToStorage() {
 
+    //goal: add this past activity card to localStorage object
+    //steps: assign key value pair that contains an array
+      //when new card is created, get array
+      var getData = localStorage.getItem("storedActivityData");
+      var parseData = JSON.parse(getData);
+      parseData.unshift(this);
+      var stringifyNewData = JSON.stringify(parseData);
+      localStorage.setItem("storedActivityData", stringifyNewData);
+      //unshift to array
+      //set updated array
   }
 }
