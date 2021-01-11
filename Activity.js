@@ -16,16 +16,16 @@ class Activity {
       logActivity.classList.toggle("hidden");
     }
     function timer() {
-      sec--;
-      if (sec < 0) {
+      if (sec > 0) {
+        sec--;
+      }
+      if (sec < 0 && min >= 0) {
          min--
          sec = 59;
       } else {
-        if (min === 0 && sec === 0) {
           clearInterval(counterSec);
           setTimeout(updateButton, 1000);
           this.completed = true;
-        }
       }
       timeRemaining.innerText = `${(min < 10 ? "0" : "") + min}:${(sec < 10 ? "0" : "") + sec}`
     }
