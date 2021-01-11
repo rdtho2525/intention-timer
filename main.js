@@ -16,11 +16,12 @@ var currentActivity = document.querySelector("#currentActivity");
 var timerButton = document.querySelector("#timerButton");
 var timeRemaining = document.querySelector("#timeRemaining");
 var chosenActivity = document.querySelector("#chosenActivity")
-var logActivity = document.querySelector("#logActivity");
+var logActivityButton = document.querySelector("#logActivity");
 var pastActivityDefault = document.querySelector("#past-activity-default-message");
 var pastCardList = document.querySelector("#past-activities");
 var currentChoice = document.getElementsByName("choice");
 var tempActivityData = document.getElementsByName("activity-data");
+var createNewActivityButton = document.querySelector("#createNewActivityButton");
 
 // GLOBAL VARIABLES------
 var currentCategory = "";
@@ -32,7 +33,8 @@ activitySelect.addEventListener('click', selectActivity); //needs reviewing
 activitySelect.addEventListener('click', selectOption); //needs reviewing
 startButton.addEventListener('click', startActivity);
 timerButton.addEventListener('click', startActivityTimer);
-logActivity.addEventListener('click', addActivityCard);
+logActivityButton.addEventListener('click', logActivity);
+createNewActivityButton.addEventListener('click', createNewActivity);
 
 // FUNCTIONS----
 function hide(element) {
@@ -100,11 +102,14 @@ function startActivity() {
 function startActivityTimer() {
   timerButton.disabled = true;
   activityData[0].startTimer(); //grabs the most recent activity added to the data model
-}
+};
 
-function addActivityCard() {
+function logActivity() {
   hide(pastActivityDefault);
   unhide(pastCardList);
+  hide(createActivity);
+  unhide(createNewActivityButton);
+  activityTitle.innerText = 'Completed Activity';
   var newCard = document.createElement('li');
   newCard.classList.add('past-activity-card');
   newCard.innerHTML=
@@ -116,4 +121,8 @@ function addActivityCard() {
      <div class="past-activity-highlight ${activityData[0].category}-highlight"></div>
   `;
   pastCardList.appendChild(newCard);
-}
+};
+
+function createNewActivity() {
+  location.reload();
+};
