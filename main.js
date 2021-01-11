@@ -17,15 +17,21 @@ var timerButton = document.querySelector("#timerButton");
 var timeRemaining = document.querySelector("#timeRemaining");
 var chosenActivity = document.querySelector("#chosenActivity")
 var logActivity = document.querySelector("#logActivity");
+var pastActivityDefault = document.querySelector("#past-activity-default-message");
+var pastCardList = document.querySelector("#past-activities");
 var currentChoice = document.getElementsByName("choice");
 
 // GLOBAL VARIABLES------
+var currentCategory = "";
+var activityData = []; // I add created this global variable to hold all our activities so we have a stable data model.
 
 
 // EVENT LISTENERS--------
-activitySelect.addEventListener('click', selectOption);
+activitySelect.addEventListener('click', selectActivity); //needs reviewing
+activitySelect.addEventListener('click', selectOption); //needs reviewing
 startButton.addEventListener('click', startActivity);
 timerButton.addEventListener('click', startActivityTimer);
+logActivity.addEventListener('click', addActivityCard);
 
 // FUNCTIONS----
 function hide(element) {
@@ -56,10 +62,21 @@ function checkInput() {
     numError.classList.toggle("invisible");
     inputIsGood = false;
   }
+
   return inputIsGood;
 }
-// MATT ZONE-UP
-// REGGIE ZONE-DOWN
+
+function selectActivity() {
+  for (var i = 0; i < currentChoice.length; i++) {
+    if (currentChoice[i].checked === true) {
+      currentCategory = currentChoice[i].value;
+      console.log(currentCategory);
+      var colorClass = `${currentCategory}Color`;
+      timerButton.classList.add(colorClass);
+    }
+  }
+}
+
 function startActivity() {
   if (checkInput() === true) {
     hide(activityForm);
@@ -68,11 +85,28 @@ function startActivity() {
     activityTitle.innerText = 'Create Activity';
     chosenActivity.innerText = userGoal.value;
     timeRemaining.innerText = `${(minutes.value < 10 ? "0" : "") + minutes.value}:${(seconds.value < 10 ? "0" : "") + seconds.value}`
+    var activity = new Activity(currentCategory, userGoal.value, minutes.value, seconds.value);
+    activityData.unshift(activity); //Add this activity to the data model
   }
 };
 
 function startActivityTimer() {
-  var activity = new Activity(exerciseBtn.value, userGoal.value, minutes.value, seconds.value);
   timerButton.disabled = true;
-  activity.startTimer();
+  activityData[0].startTimer(); //grabs the most recent activity added to the data model
+}
+
+function addActivityCard() {
+  hide(pastActivityDefault);
+  unhide(pastCardList);
+  var newCard = document.createElement('li');
+  newCard.classList.add('past-activity-card');
+  newCard.innerHTML=
+  `  <aside>
+        <p id="pastActivityTitle" class="past-activity-title">${activityData[0].category}</p>
+        <p id="pastActivityTime" class="past-activity-time">${activityData[0].minutes} MIN</p>
+        <p id="pastActivityGoal" class="past-activity-goal">${activityData[0].description}</p>
+     </aside>
+     <div class="past-activity-highlight ${activityData[0].category}-highlight"></div>
+  `;
+  pastCardList.appendChild(newCard);
 }

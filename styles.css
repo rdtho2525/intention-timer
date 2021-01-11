@@ -184,8 +184,19 @@ input[value="exercise"]:checked + label {
   font-weight: 300;
   margin-top: 2em;
   margin-bottom: 2em;
-  border: 2px solid #C278FD;
   border-radius: 50%;
+}
+
+.studyColor {
+  border: 2px solid #B3FD78;
+}
+
+.meditateColor{
+  border: 2px solid #C278FD;
+}
+
+.exerciseColor {
+  border: 2px solid #FD8078;
 }
 
 .log-activity {
@@ -196,6 +207,61 @@ input[value="exercise"]:checked + label {
 .log-activity > button {
   margin: 0 auto;
   width: 200px;
+}
+
+/* **PAST ACTIVITY SECTION** */
+.past-activity-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+}
+
+.past-activity-card {
+  height: 90px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #46424D;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 10px 10px 10px #26222D;
+}
+
+.past-activity-title {
+  color: #FFF;
+  font-weight: 400;
+}
+
+.past-activity-time {
+  color: #FFF;
+  font-weight: 300;
+}
+
+.past-activity-goal {
+  color: #FFF;
+  font-weight: 300;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.past-activity-highlight {
+  width: 5px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.study-highlight {
+  background-color: #B3FD78;
+}
+
+.meditate-highlight {
+  background-color: #C278FD;
+}
+
+.exercise-highlight {
+  background-color: #FD8078;
 }
 
 /* **TEXT STYLES** */
@@ -219,7 +285,6 @@ label {
 }
 
 .create-activity > p {
-  color: #CBC9CF;
   font-size: 18px;
   padding-bottom: 0;
 }
