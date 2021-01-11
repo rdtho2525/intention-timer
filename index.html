@@ -19,22 +19,32 @@
       <section class="user-input-card">
         <div id="activityForm" class="activity-form">
           <label for="activity-list">Select a category:</label>
-
           <div class="activity-selection" id="activity-list">
-            <input id="study" type="radio" name="choice" value="study">
-            <label for="study"><img class="icon" src="./assets/study.svg">Study</label>
-
-            <input id="meditate" type="radio" name="choice" value="meditate">
-            <label for="meditate">
+            <input id="studying" type="radio" name="choice" value="study">
+              <label class="hover" for="studying">
+                <div class="icon-styling">
+                  <img class="icon" src="./assets/study.svg">
+                  <img id="study" class="icon hidden" src="./assets/study-active.svg">
+                </div>
+                Study
+              </label>
+            <input id="meditating" type="radio" name="choice" value="meditate">
+            <label class="hover" for="meditating">
               <div class="icon-styling">
-                <img class="icon" src="./assets/meditate-active.svg"><img class="icon" src="./assets/meditate.svg">
+                <img class="icon" src="./assets/meditate.svg">
+                <img id="meditate"class="icon hidden" src="./assets/meditate-active.svg">
               </div>
-                Meditate</label>
-
-            <input id="exercise" type="radio" name="choice" value="exercise">
-            <label for="exercise"><img class="icon" src="./assets/exercise.svg">Exercise</label>
+                Meditate
+            </label>
+              <input id="exercising" type="radio" name="choice" value="exercise">
+              <label class="hover" for="exercising">
+                <div class="icon-styling">
+                  <img class="icon" src="./assets/exercise.svg">
+                  <img id="exercise" class="icon hidden" src="./assets/exercise-active.svg">
+                </div>
+                Exercise
+              </label>
           </div>
-
           <form>
             <label for="goals">What would you like to accomplish during this time?</label>
             <input type="text" name="activity-data" id="goals">
