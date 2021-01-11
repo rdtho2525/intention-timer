@@ -13,7 +13,7 @@ class Activity {
     var sec = this.seconds;
     function updateButton() {
       timerButton.innerText = `COMPLETE!`;
-      logActivity.classList.toggle("hidden");
+      logActivityButton.classList.toggle("hidden");
     }
     function timer() {
       if (sec > 0) {

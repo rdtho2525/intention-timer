@@ -164,10 +164,11 @@ input[value="exercise"]:checked + label {
   pointer-events: none;
 }
 
-.start-activity-button {
+.activity-button {
   align-self: flex-end;
   background-color: #FFF;
   color: #2B2733;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   border: none;
   border-radius: 2px;
@@ -207,6 +208,17 @@ input[value="exercise"]:checked + label {
 .log-activity > button {
   margin: 0 auto;
   width: 200px;
+}
+
+.create-activity-button-container {
+  width: 100%;
+  display: flex;
+}
+
+.create-activity-button-container > button{
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 /* **PAST ACTIVITY SECTION** */
@@ -343,7 +355,7 @@ label {
 /*
 Main background: #2B2733
 Text on main background: #CBC9CF
-Header, cards: #46424D
+Header, cards: #
 Card shadow: #26222D
 Text on header and cards: #FFF
 Study: #B3FD78
