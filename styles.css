@@ -227,6 +227,7 @@ input[value="exercise"]:checked + label {
   flex-direction: column;
   align-items: center;
   list-style-type: none;
+  overflow: scroll;
 }
 
 .past-activity-card {
@@ -237,6 +238,7 @@ input[value="exercise"]:checked + label {
   justify-content: space-between;
   background-color: #46424D;
   border-radius: 5px;
+  margin-bottom: 1.5em;
   padding: 10px;
   box-shadow: 10px 10px 10px #26222D;
 }
