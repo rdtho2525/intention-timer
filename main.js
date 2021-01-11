@@ -20,6 +20,7 @@ var logActivity = document.querySelector("#logActivity");
 var pastActivityDefault = document.querySelector("#past-activity-default-message");
 var pastCardList = document.querySelector("#past-activities");
 var currentChoice = document.getElementsByName("choice");
+var tempActivityData = document.getElementsByName("activity-data");
 
 // GLOBAL VARIABLES------
 var currentCategory = "";
@@ -42,6 +43,14 @@ function unhide(element) {
   return element.classList.remove('hidden')
 }
 
+function hideError(element) {
+  return element.classList.add('invisible')
+}
+
+function unhideError(element) {
+  return element.classList.remove('invisible')
+}
+
 function selectOption() {
   for (i = 0; i < currentChoice.length; i++) {
     output = document.querySelector(`#${currentChoice[i].value}`);
@@ -50,27 +59,26 @@ function selectOption() {
 }
 
 function checkInput() {
-  var inputIsGood = true;
-  var minInput = parseInt(minutes.value);
-  var secInput = parseInt(seconds.value);
-
-  if (!userGoal.value) {
-    goalError.classList.toggle("invisible");
-    inputIsGood = false;
+  var validInput;
+  if (userGoal.value === "") {
+    unhideError(goalError)
+    validInput = false
   }
-  if (!(minInput || minInput.typeof === "number" || minInput === "e") || !(secInput || secInput.typeof === "number" || secInput === "e")) {
-    numError.classList.toggle("invisible");
-    inputIsGood = false;
+  if (minutes.value === "" || seconds.value === "" || isNaN(minutes.value) || isNaN(seconds.value)) {
+    unhideError(numError)
+    inputIsGood = false
+  } else {
+    hideError(goalError);
+    hideError(numError)
+    validInput = true
   }
-
-  return inputIsGood;
+  return validInput
 }
 
 function selectActivity() {
   for (var i = 0; i < currentChoice.length; i++) {
     if (currentChoice[i].checked === true) {
       currentCategory = currentChoice[i].value;
-      console.log(currentCategory);
       var colorClass = `${currentCategory}Color`;
       timerButton.classList.add(colorClass);
     }
@@ -78,10 +86,9 @@ function selectActivity() {
 }
 
 function startActivity() {
-  if (checkInput() === true) {
+  if (checkInput()) {
     hide(activityForm);
     unhide(createActivity);
-    // timerButton.classList.add(`${}`)
     activityTitle.innerText = 'Create Activity';
     chosenActivity.innerText = userGoal.value;
     timeRemaining.innerText = `${(minutes.value < 10 ? "0" : "") + minutes.value}:${(seconds.value < 10 ? "0" : "") + seconds.value}`
