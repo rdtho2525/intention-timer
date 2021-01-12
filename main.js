@@ -31,7 +31,6 @@ var activityData; // I add created this global variable to hold all our activiti
 
 // EVENT LISTENERS--------
 window.addEventListener('load', setLocalStorage);
-window.addEventListener('load', displayPastActivities);
 activitySelect.addEventListener('click', selectActivity); //needs reviewing
 activitySelect.addEventListener('click', selectOption); //needs reviewing
 startButton.addEventListener('click', startActivity);
@@ -46,6 +45,8 @@ function setLocalStorage() {
     localStorage.setItem("storedActivityData", stringify)
   } else {
     hide(pastActivityDefault);
+    unhide(pastCardList);
+    getLocalStorage();
   }
 }
 
@@ -56,21 +57,17 @@ function getLocalStorage() {
     return
   }
   for (i = 0; i < parsedLocalData.length; i++) {
-      pastCardList.innerHTML +=
-      `<li class="past-activity-card">
-        <aside>
-          <p id="pastActivityTitle" class="past-activity-title">${parsedLocalData[i].category}</p>
-          <p id="pastActivityTime" class="past-activity-time">${parsedLocalData[i].minutes} MIN</p>
-          <p id="pastActivityGoal" class="past-activity-goal">${parsedLocalData[i].description}</p>
-       </aside>
-       <div class="past-activity-highlight ${parsedLocalData[i].category}-highlight"></div>
-      </li>`;
-    }
+    pastCardList.innerHTML +=
+    `<li class="past-activity-card">
+      <aside>
+        <p id="pastActivityTitle" class="past-activity-title">${parsedLocalData[i].category}</p>
+        <p id="pastActivityTime" class="past-activity-time">${parsedLocalData[i].minutes} MIN</p>
+        <p id="pastActivityGoal" class="past-activity-goal">${parsedLocalData[i].description}</p>
+     </aside>
+     <div class="past-activity-highlight ${parsedLocalData[i].category}-highlight"></div>
+    </li>`;
   }
 }
-
-// function displayPastActivities() {
-// }
 
 function hide(element) {
   return element.classList.add('hidden')
@@ -143,25 +140,20 @@ function logActivity() {
   unhide(pastCardList);
   hide(currentActivity);
   unhide(createNewActivityButton);
+  activity.markComplete();
   activityTitle.innerText = 'Completed Activity';
-  var newCard = document.createElement('li');
-  newCard.classList.add('past-activity-card');
   activity.saveToStorage();
-  newCard.innerHTML=
-  `  <aside>
+  pastCardList.innerHTML +=
+  `<li class="past-activity-card">
+    <aside>
         <p id="pastActivityTitle" class="past-activity-title">${activity.category}</p>
         <p id="pastActivityTime" class="past-activity-time">${activity.minutes} MIN</p>
         <p id="pastActivityGoal" class="past-activity-goal">${activity.description}</p>
      </aside>
      <div class="past-activity-highlight ${activity.category}-highlight"></div>
-  `;
-  pastCardList.appendChild(newCard);
+  </li>`;
 };
 
-function createNewActivity(event) {
-  // location.reload();
-  // hide(pastActivityDefault);
-  // event.preventDefault();
-  getLocalStorage();
-  // logActivity();
+function createNewActivity() {
+  location.reload();
 };
