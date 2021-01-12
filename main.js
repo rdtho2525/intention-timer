@@ -18,9 +18,9 @@ var timeRemaining = document.querySelector("#timeRemaining");
 var chosenActivity = document.querySelector("#chosenActivity")
 var logActivityButton = document.querySelector("#logActivity");
 var pastActivityDefault = document.querySelector("#past-activity-default-message");
-var pastCardList = document.querySelector("#past-activities");
+var pastCardList = document.querySelector("#pastActivities");
 var currentChoice = document.getElementsByName("choice");
-var tempActivityData = document.getElementsByName("activity-data");
+var pastActivityCard = document.querySelector("#pastActivity");
 var createNewActivityButton = document.querySelector("#createNewActivityButton");
 
 // GLOBAL VARIABLES------
@@ -31,6 +31,7 @@ var activityData; // I add created this global variable to hold all our activiti
 
 // EVENT LISTENERS--------
 window.addEventListener('load', setLocalStorage);
+window.addEventListener('load', displayPastActivities);
 activitySelect.addEventListener('click', selectActivity); //needs reviewing
 activitySelect.addEventListener('click', selectOption); //needs reviewing
 startButton.addEventListener('click', startActivity);
@@ -39,10 +40,37 @@ logActivityButton.addEventListener('click', logActivity);
 createNewActivityButton.addEventListener('click', createNewActivity);
 // FUNCTIONS----
 function setLocalStorage() {
-  activityData = [];
-  var stringify = JSON.stringify(activityData);
-  localStorage.setItem("storedActivityData", stringify)
+  if (localStorage.getItem("storedActivityData") === null) {
+    activityData = [];
+    var stringify = JSON.stringify(activityData);
+    localStorage.setItem("storedActivityData", stringify)
+  } else {
+    hide(pastActivityDefault);
+  }
 }
+
+function getLocalStorage() {
+  var getLocalData = localStorage.getItem("storedActivityData");
+  var parsedLocalData = JSON.parse(getLocalData);
+  if (!parsedLocalData.length) {
+    return
+  }
+  for (i = 0; i < parsedLocalData.length; i++) {
+      pastCardList.innerHTML +=
+      `<li class="past-activity-card">
+        <aside>
+          <p id="pastActivityTitle" class="past-activity-title">${parsedLocalData[i].category}</p>
+          <p id="pastActivityTime" class="past-activity-time">${parsedLocalData[i].minutes} MIN</p>
+          <p id="pastActivityGoal" class="past-activity-goal">${parsedLocalData[i].description}</p>
+       </aside>
+       <div class="past-activity-highlight ${parsedLocalData[i].category}-highlight"></div>
+      </li>`;
+    }
+  }
+}
+
+// function displayPastActivities() {
+// }
 
 function hide(element) {
   return element.classList.add('hidden')
@@ -130,7 +158,10 @@ function logActivity() {
   pastCardList.appendChild(newCard);
 };
 
-function createNewActivity() {
+function createNewActivity(event) {
   // location.reload();
-  logActivity();
+  // hide(pastActivityDefault);
+  // event.preventDefault();
+  getLocalStorage();
+  // logActivity();
 };
