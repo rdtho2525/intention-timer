@@ -26,7 +26,7 @@ _Saved activities will appear on the right of the screen_
 ![](assets/README-e3a1e91f.png)
 
 ## Link to the deployed set
-https://github.com/rdtho2525/intention-timer
+https://rdtho2525.github.io/intention-timer/
 
 ## Local install instructions
 1. Clone this repo
