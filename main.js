@@ -119,6 +119,11 @@ function selectActivity() {
   }
 }
 
+function updateButton() {
+  timerButton.innerText = `COMPLETE!`;
+  logActivityButton.classList.toggle("hidden");
+}
+
 function startActivity() {
   if (checkInput()) {
     activity = new Activity(currentCategory, userGoal.value, minutes.value, seconds.value);
@@ -132,7 +137,7 @@ function startActivity() {
 
 function startActivityTimer() {
   timerButton.disabled = true;
-  activity.startTimer(); //grabs the most recent activity added to the data model
+  activity.startTimer();
 };
 
 function logActivity() {

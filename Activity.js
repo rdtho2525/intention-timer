@@ -11,24 +11,25 @@ class Activity {
     var counterSec = setInterval(timer, 1000);
     var min = this.minutes;
     var sec = this.seconds;
-    function updateButton() {
-      timerButton.innerText = `COMPLETE!`;
-      logActivityButton.classList.toggle("hidden");
+    function runAlert() {
+      return alert('Time\'s Up!');
     }
     function timer() {
-      if (sec > 0) {
-        sec--;
-      }
-      if (sec < 0 && min >= 0) {
-         min--
+      sec--;
+      if (sec < 0) {
          sec = 59;
-      } else {
-          clearInterval(counterSec);
-          setTimeout(updateButton, 1000);
-      }
+         min--;
+       }
+      if (min < 0) {
+        min = 0;
+        sec = 0;
+        clearInterval(counterSec);
+        setTimeout(updateButton, 50);
+        }
       timeRemaining.innerText = `${(min < 10 ? "0" : "") + min}:${(sec < 10 ? "0" : "") + sec}`
     }
   }
+
 
   markComplete() {
     this.completed = true;
