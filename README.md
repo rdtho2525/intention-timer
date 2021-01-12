@@ -35,5 +35,5 @@ https://github.com/rdtho2525/intention-timer
 
 ## Contributors
  * Reggie Thompson https://github.com/rdtho2525
- * Matt Umland https://github.com/mattumland
+ * Matt Umland https://github.com/mattumland  
 _We hope our timer brings you joy._
