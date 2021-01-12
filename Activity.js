@@ -25,7 +25,6 @@ class Activity {
       } else {
           clearInterval(counterSec);
           setTimeout(updateButton, 1000);
-          this.completed = true;
       }
       timeRemaining.innerText = `${(min < 10 ? "0" : "") + min}:${(sec < 10 ? "0" : "") + sec}`
     }
@@ -35,6 +34,10 @@ class Activity {
     this.completed = true;
   }
   saveToStorage() {
-
+    var getData = localStorage.getItem("storedActivityData");
+    var parseData = JSON.parse(getData);
+    parseData.unshift(this);
+    var stringifyNewData = JSON.stringify(parseData);
+    localStorage.setItem("storedActivityData", stringifyNewData);
   }
 }
