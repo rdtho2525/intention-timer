@@ -22,6 +22,7 @@ body {
 
 /* **PAGE LAYOUT** */
 main {
+  height: 100vh;
   display: flex;
 }
 
@@ -85,9 +86,10 @@ input {
 }
 
 .past-activities {
-  height: 677px;
+  height: 100%;
   width: 33%;
   border-left: solid #46424D;
+  overflow: hidden;
 }
 
 .activity-selection {
@@ -227,7 +229,7 @@ input[value="exercise"]:checked + label {
   flex-direction: column;
   align-items: center;
   list-style-type: none;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .past-activity-card {
